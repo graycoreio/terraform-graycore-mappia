@@ -1,6 +1,7 @@
 variable "values" {
   type        = list(string)
   description = "Helm chart values"
+  default     = []
 }
 
 variable "host" {
