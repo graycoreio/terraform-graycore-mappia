@@ -11,35 +11,8 @@ resource "helm_release" "mappia" {
 
   values = var.values
 
-  # Magento config
-  set {
-    name  = "magento.baseUrl"
-    value = format("https://%s", var.host)
-  }
-  set {
-    name  = "magento.adminUrl"
-    value = format("https://%s", var.host)
-  }
-  # Ingress config
-  set {
-    name  = "api.ingress.hosts[0].host"
-    value = var.host
-  }
-  set {
-    name  = "admin.ingress.hosts[0].host"
-    value = var.host
-  }
-  set {
-    name  = "admin.ingress.hosts[0].paths"
-    value = "{/admin,/index.php/admin}"
-  }
-  set {
-    name  = "api.ingressRoot.service.name"
-    value = format("%s", var.name)
-  }
-
   dynamic "set" {
-    for_each = var.set_values
+    for_each = merge(local.default_set_values, var.set_values)
 
     content {
       name  = set.key
@@ -47,4 +20,15 @@ resource "helm_release" "mappia" {
     }
   }
 
+}
+
+locals {
+  default_set_values = var.use_default_config ? {
+    "magento.baseUrl" = format("https://%s", var.host)
+    "magento.adminUrl" = format("https://%s", var.host)
+    "api.ingress.hosts[0].host" = var.host
+    "admin.ingress.hosts[0].host" = var.host
+    "admin.ingress.hosts[0].paths" = "{/admin,/index.php/admin}"
+    "api.ingressRoot.service.name" = var.name
+  } : {}
 }
