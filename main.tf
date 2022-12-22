@@ -1,7 +1,7 @@
 # Mappia Deployment
 resource "helm_release" "mappia" {
   name            = var.name
-  version         = "0.1.7"
+  version         = var.chart_version
   repository      = "oci://mappia.azurecr.io/helm"
   chart           = "mappia"
   wait            = true
