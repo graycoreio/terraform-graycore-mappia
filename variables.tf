@@ -7,7 +7,7 @@ variable "values" {
 variable "host" {
   type        = string
   description = "Magento host to be used by default configuration"
-  default = "example.com"
+  default     = "example.com"
 }
 
 variable "name" {
@@ -23,9 +23,9 @@ variable "chart_version" {
 }
 
 variable "use_default_config" {
-  type = bool
+  type        = bool
   description = "Use pre-defined ingress/magento host configuration"
-  default = true
+  default     = true
 }
 
 variable "set_values" {

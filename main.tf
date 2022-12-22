@@ -24,10 +24,10 @@ resource "helm_release" "mappia" {
 
 locals {
   default_set_values = var.use_default_config ? {
-    "magento.baseUrl" = format("https://%s", var.host)
-    "magento.adminUrl" = format("https://%s", var.host)
-    "api.ingress.hosts[0].host" = var.host
-    "admin.ingress.hosts[0].host" = var.host
+    "magento.baseUrl"              = format("https://%s", var.host)
+    "magento.adminUrl"             = format("https://%s", var.host)
+    "api.ingress.hosts[0].host"    = var.host
+    "admin.ingress.hosts[0].host"  = var.host
     "admin.ingress.hosts[0].paths" = "{/admin,/index.php/admin}"
     "api.ingressRoot.service.name" = var.name
   } : {}
