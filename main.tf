@@ -1,7 +1,9 @@
 # Mappia Deployment
 resource "helm_release" "mappia" {
   name            = var.name
-  chart           = "../../chart"
+  version = "0.1.7"
+  repository      = "oci://mappia.azurecr.io/helm"
+  chart           = "mappia"
   wait            = true
   timeout         = 600
   cleanup_on_fail = true
