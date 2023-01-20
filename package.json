@@ -1,0 +1,11 @@
+{
+  "name": "@mappia/terraform-mappia",
+  "version": "0.0.1",
+  "description": "Terraform chart to deploy mappia",
+  "keywords": [
+    "Helm",
+    "Terraform"
+  ],
+  "author": "Mateus D Dadalto",
+  "license": "SEE LICENSE IN LICENSE"
+}
