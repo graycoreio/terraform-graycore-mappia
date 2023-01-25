@@ -1,13 +1,14 @@
 # Mappia Deployment
 resource "helm_release" "mappia" {
-  name            = var.name
-  version         = var.chart_version
-  repository      = "oci://mappia.azurecr.io/helm"
-  chart           = "mappia"
-  wait            = true
-  timeout         = 600
-  cleanup_on_fail = true
-  atomic          = true
+  name                  = var.name
+  version               = var.chart_version
+  repository            = "oci://mappia.azurecr.io/helm"
+  chart                 = "mappia"
+  wait                  = true
+  timeout               = 600
+  cleanup_on_fail       = true
+  atomic                = true
+  render_subchart_notes = false
 
   values = var.values
 
