@@ -1,7 +1,7 @@
 variable "chart_version" {
   type        = string
   description = "Mappia release version"
-  default     = "0.1.9"
+  default     = ""
 }
 
 variable "host" {
