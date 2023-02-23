@@ -1,7 +1,7 @@
-variable "values" {
-  type        = list(string)
-  description = "Helm chart values"
-  default     = []
+variable "chart_version" {
+  type        = string
+  description = "Mappia release version"
+  default     = "0.1.9"
 }
 
 variable "host" {
@@ -16,10 +16,10 @@ variable "name" {
   default     = "mappia"
 }
 
-variable "chart_version" {
-  type        = string
-  description = "Mappia release version"
-  default     = "0.1.9"
+variable "set_values" {
+  type        = map(string)
+  description = "Dict of custom values to be merged with the values yaml "
+  default     = {}
 }
 
 variable "use_default_config" {
@@ -28,8 +28,8 @@ variable "use_default_config" {
   default     = true
 }
 
-variable "set_values" {
-  type        = map(string)
-  description = "Dict of custom values to be merged with the values yaml "
-  default     = {}
+variable "values" {
+  type        = list(string)
+  description = "Helm chart values"
+  default     = []
 }
