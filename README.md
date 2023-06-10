@@ -6,8 +6,8 @@ Basic usage
 
 ```terraform
 module "mappia" {
-  source  = "app.terraform.io/graycore/mappia/graycore"
-  version = "0.0.1"
+  source  = "graycore/mappia/graycore"
+  version = "0.0.1" # x-release-please-version
 
   host = myhost.com
 }
