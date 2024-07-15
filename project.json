@@ -8,7 +8,7 @@
       "dependsOn": [
         {
           "target": "build",
-          "projects": "dependencies"
+          "dependencies": true
         }
       ],
       "executor": "./dist/tools/executors/terraform:lint"
