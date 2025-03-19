@@ -29,7 +29,6 @@ locals {
     "magento.adminUrl"               = format("https://%s", var.host)
     "api.ingress.hosts[0].host"      = var.host
     "admin.ingress.hosts[0].host"    = var.host
-    "admin.ingress.hosts[0].paths"   = "{/admin,/index.php/admin}"
     "frontend.ingress.hosts[0].host" = var.host
   } : {}
 }
