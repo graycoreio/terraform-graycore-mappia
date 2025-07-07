@@ -12,14 +12,12 @@ resource "helm_release" "mappia" {
 
   values = var.values
 
-  dynamic "set" {
-    for_each = merge(local.default_set_values, var.set_values)
-
-    content {
-      name  = set.key
-      value = set.value
+  set = [
+    for k, v in merge(local.default_set_values, var.set_values) : {
+      name  = k
+      value = v
     }
-  }
+  ]
 
 }
 
