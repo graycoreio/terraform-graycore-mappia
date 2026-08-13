@@ -11,6 +11,7 @@
           "dependencies": true
         }
       ],
+      "inputs": ["default", "^default"],
       "executor": "@mappia/terraform-executor:lint"
     }
   },
